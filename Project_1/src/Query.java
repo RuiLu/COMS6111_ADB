@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Query {
 	public Map<String, Integer> counts;
+	public ArrayList<String> words;
 	
 	/*
 	 * The initial function which gets an array of tokens and
@@ -9,6 +10,7 @@ public class Query {
 	 * The map is used to store the counts of each token (which should be either 0 or 1).
 	 */
 	public Query(ArrayList<String> tokens) {
+		words = new ArrayList<String>(tokens);
 		counts = new HashMap<String, Integer>();
 		for(int i=0;i<tokens.size();i++) {
 			String token=tokens.get(i);
