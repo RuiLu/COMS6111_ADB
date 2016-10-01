@@ -24,6 +24,7 @@ public class Document {
 	 * Transform the Document into vector.
 	 * Needs an index as input which tells the order of tokens
 	 * in the vector, namely which is the i-th token.
+	 * Here we only uses the tf weight and normalize each vector.
 	 */
 	public ArrayList<Double> toVector(ArrayList<String> index) {
 		ArrayList<Double> res = new ArrayList<Double>();
