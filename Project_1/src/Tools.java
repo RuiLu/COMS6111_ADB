@@ -15,9 +15,10 @@ import java.io.IOException;
 
 public class Tools {
 	private HashSet<String> stopwordSet;
-	
+	private final String filePath = "files/stopwords.txt";
 	public Tools() {
 		stopwordSet = getStopwordSet();
+		System.out.println(stopwordSet.size());
 	}
 	
 	/**
@@ -29,7 +30,7 @@ public class Tools {
 		BufferedReader br = null;
 		
 		try {
-			br = new BufferedReader(new FileReader("files/stopwords.txt"));
+			br = new BufferedReader(new FileReader(filePath));
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				set.add(line);
