@@ -16,6 +16,7 @@ import java.io.IOException;
 public class Tools {
 	private HashSet<String> stopwordSet;
 	private final String filePath = "files/stopwords.txt";
+	
 	public Tools() {
 		stopwordSet = getStopwordSet();
 		System.out.println(stopwordSet.size());
