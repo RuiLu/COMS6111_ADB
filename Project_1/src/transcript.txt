@@ -1,0 +1,570 @@
+=================================
+Round 1
+QUERY musk
+
+Result 1
+Relevant: NO
+[
+URL         : https://en.wikipedia.org/wiki/Musk
+Title       : Musk - Wikipedia, the free encyclopedia
+Description : Musk is a class of aromatic substances commonly used as base notes in perfumery. They include glandular secretions from animals such as the musk deer, numerous plants ...
+]
+
+
+Result 2
+Relevant: YES
+[
+URL         : http://www.foxnews.com/science/2016/09/28/elon-musk-unveils-ambitious-mars-colonization-plan.html
+Title       : Elon Musk unveils ambitious Mars colonization plan | Fox News
+Description : On Tuesday, SpaceX CEO Elon Musk unveiled plans for a spacecraft and rocket project that intends to put intelligent life on Mars: human life. In a speech ...
+]
+
+
+Result 3
+Relevant: YES
+[
+URL         : http://www.nytimes.com/2016/09/28/science/elon-musk-spacex-mars-exploration.html
+Title       : Elon Musk’s Plan: Get Humans to Mars, and Beyond
+Description : SpaceX, Elon Musk’s rocket company, released a video simulation of a journey to Mars. His plan is for spacecraft that would take 100 passengers to the ...
+]
+
+
+Result 4
+Relevant: YES
+[
+URL         : http://www.cnbc.com/elon-musk/
+Title       : Elon Musk - CNBC
+Description : Wednesday, 28 Sep 2016 | 12:06 PM ET. Astrophysicist Neil deGrasse Tyson, like Elon Musk, says it is highly likely our reality is one big simulation.
+]
+
+
+Result 5
+Relevant: NO
+[
+URL         : http://www.merriam-webster.com/dictionary/musk
+Title       : Musk | Definition of Musk by Merriam-Webster
+Description : :a strong-smelling material that is used in perfumes and is obtained from a gland of an Asian deer (musk deer) or is prepared artificially
+]
+
+
+Result 6
+Relevant: YES
+[
+URL         : http://money.cnn.com/2016/09/27/technology/spacex-elon-musk-mars-colonization/index.html
+Title       : Elon Musk lays out the plan to put humans on Mars - Sep ...
+Description : Elon Musk said Tuesday that a self-sustaining colony of people could be living on Mars within 50 to 150 years. The SpaceX CEO laid out his plan to colonize ...
+]
+
+
+Result 7
+Relevant: YES
+[
+URL         : http://www.forbes.com/profile/elon-musk/
+Title       : Elon Musk - Forbes
+Description : Elon Musk Will Reach Mars Before Tesla Cracks China, Unless Beijing Changes The Rules Earlier this week, Elon Musk presented his master plan for colonizing Mars, a ...
+]
+
+
+Result 8
+Relevant: YES
+[
+URL         : http://www.wsj.com/articles/elon-musk-outlines-plans-for-manned-missions-to-mars-1475011627
+Title       : Elon Musk Outlines Plans for Missions to Mars - WSJ
+Description : Elon Musk unveiled his contrarian vision of sending humans to Mars in roughly the next decade and ultimately setting up colonies there, relying on bold moves by ...
+]
+
+
+Result 9
+Relevant: YES
+[
+URL         : http://www.businessinsider.com/musk-give-up-tesla-ceo-job-2016-9
+Title       : Musk give up Tesla CEO job - Business Insider
+Description : Musk. Mars. SpaceX/YouTube. You may have missed it, but this was the most head-warping week in Elon Musk's life, for anyone who has been following the man ...
+]
+
+
+Result 10
+Relevant: YES
+[
+URL         : https://en.wikipedia.org/wiki/Elon_Musk
+Title       : Elon Musk - Wikipedia, the free encyclopedia
+Description : Born: Elon Reeve Musk June 28, 1971 (age 45) Pretoria, Transvaal, South Africa: Residence: Bel Air, Los Angeles, California, United States: Nationality
+]
+
+
+PRECISION:0.8
+=================================
+Round 2
+QUERY musk elon mars
+
+Result 1
+Relevant: YES
+[
+URL         : http://money.cnn.com/2016/09/27/technology/spacex-elon-musk-mars-colonization/index.html
+Title       : Elon Musk lays out the plan to put humans on Mars - Sep ...
+Description : Elon Musk said Tuesday that a self-sustaining colony of people could be living on Mars within 50 to 150 years. The SpaceX CEO laid out his plan to colonize ...
+]
+
+
+Result 2
+Relevant: YES
+[
+URL         : http://www.foxnews.com/science/2016/09/28/elon-musk-unveils-ambitious-mars-colonization-plan.html
+Title       : Elon Musk unveils ambitious Mars colonization plan | Fox News
+Description : On Tuesday, SpaceX CEO Elon Musk unveiled plans for a spacecraft and rocket project that intends to put intelligent life on Mars: human life. In a speech ...
+]
+
+
+Result 3
+Relevant: YES
+[
+URL         : http://www.nytimes.com/2016/09/28/science/elon-musk-spacex-mars-exploration.html
+Title       : Elon Musk’s Plan: Get Humans to Mars, and Beyond
+Description : SpaceX, Elon Musk’s rocket company, released a video simulation of a journey to Mars. His plan is for spacecraft that would take 100 passengers to the ...
+]
+
+
+Result 4
+Relevant: YES
+[
+URL         : http://gizmodo.com/this-is-how-elon-musk-plans-to-build-a-city-on-mars-up-1787146547
+Title       : How Elon Musk Plans to Go to Mars - gizmodo.com
+Description : SpaceX plans to build a “self-sustaining city” on Mars, according to its founder Elon Musk. But, while we now know a lot more about how SpaceX plans to get to ...
+]
+
+
+Result 5
+Relevant: YES
+[
+URL         : http://abcnews.go.com/Technology/elon-musk-expected-detail-spacexs-mars-ambitions/story?id=42361304
+Title       : Elon Musk Expected to Detail SpaceX's Mars Ambitions
+Description : Speculation is rife that SpaceX CEO Elon Musk is about to detail plans to take humans to Mars within a decade. The space, car and tech mogul is scheduled to speak ...
+]
+
+
+Result 6
+Relevant: YES
+[
+URL         : http://www.forbes.com/sites/lealane/2016/10/02/would-you-risk-your-life-to-travel-to-mars-elon-musk-offers-the-chance-many-are-ready/
+Title       : Would You Risk Your Life To Travel To Mars? Elon Musk ...
+Description : Elon Musk, CEO for Space Exploration Technologies Corp. ... Mars more than others due to the fact I used to read DC Comics as a kid about Martian Manhunter.
+]
+
+
+Result 7
+Relevant: YES
+[
+URL         : http://www.wsj.com/articles/elon-musk-outlines-plans-for-manned-missions-to-mars-1475011627
+Title       : Elon Musk Outlines Plans for Missions to Mars - WSJ
+Description : Elon Musk unveiled his contrarian vision of sending humans to Mars in roughly the next decade and ultimately setting up colonies there, relying on bold moves by ...
+]
+
+
+Result 8
+Relevant: YES
+[
+URL         : https://www.theguardian.com/technology/2016/sep/27/elon-musk-spacex-mars-colony
+Title       : SpaceX founder Elon Musk plans to get humans to Mars in ...
+Description : SpaceX founder Elon Musk has outlined his highly ambitious vision for manned missions to Mars, which he said could begin as soon as 2022 – three years ...
+]
+
+
+Result 9
+Relevant: YES
+[
+URL         : http://www.cbsnews.com/news/spacex-elon-musk-unveils-grandiose-plan-to-colonize-mars/
+Title       : SpaceX CEO Elon Musk unveils grandiose plan to colonize ...
+Description : SpaceX founder Elon Musk says he plans to build huge new reusable rockets and spaceships to eventually ferry colonists to Mars
+]
+
+
+Result 10
+Relevant: NO
+[
+URL         : http://www.spacex.com/mars
+Title       : Mars | SpaceX
+Description : Mars. You are here. Home. Rockets & Spacecraft. Falcon 9; Falcon Heavy; Dragon; Updates. News; Gallery; Launch Manifest; About SpaceX. Company; Careers; Press; Shop ...
+]
+
+
+PRECISION:0.9
+=================================
+Round 1
+QUERY brin
+
+Result 1
+Relevant: NO
+[
+URL         : http://www.thefreedictionary.com/Brin
+Title       : Brin - definition of brin by The Free Dictionary
+Description : brin (brɪn) n. 1. (Animals) one of two filaments of silk combined by the silkworm to form a strand of silk. 2. one of the ribs of a fan
+]
+
+
+Result 2
+Relevant: YES
+[
+URL         : https://en.wikipedia.org/wiki/Sergey_Brin
+Title       : Sergey Brin - Wikipedia, the free encyclopedia
+Description : Early life and education. Brin was born in Moscow in the Soviet Union, to Russian Jewish parents, Yevgenia and Mikhail Brin, both graduates of Moscow State ...
+]
+
+
+Result 3
+Relevant: NO
+[
+URL         : http://brin.ai/
+Title       : BRiN - Your Personal Business Advisor
+Description : Download BRiN today & get instant access to real-time support and hundreds of business education videos. Introducing BRiN - Your Personal Business Advisor.
+]
+
+
+Result 4
+Relevant: NO
+[
+URL         : http://www.davidbrin.com/
+Title       : worlds of DAVID BRIN
+Description : official website of best-selling science fiction writer and futurist DAVID BRIN
+]
+
+
+Result 5
+Relevant: YES
+[
+URL         : http://www.forbes.com/profile/sergey-brin/
+Title       : Sergey Brin - Forbes
+Description : Sergey Brin runs Alphabet's secretive X division, a key player in the race towards autonomous vehicles and the builder of self-driving cars. X (formerly called ...
+]
+
+
+Result 6
+Relevant: NO
+[
+URL         : http://bringlass.com/
+Title       : Minnesota Glass, Minneapolis Glass - Brin Northwestern ...
+Description : Founded in 1912, Brin Northwestern Glass has nearly a century of experience in residential and commercial glass and glazing in MN and WI.
+]
+
+
+Result 7
+Relevant: NO
+[
+URL         : http://science.howstuffworks.com/life/inside-the-mind/human-brain/brain.htm
+Title       : How Your Brain Works | HowStuffWorks
+Description : How Your Brain Works. by Craig Freudenrich, Ph.D. & Robynne Boyd Science | The Human Brain. NEXT PAGE NEXT . The human nervous system ...
+]
+
+
+Result 8
+Relevant: NO
+[
+URL         : http://www.mylifetime.com/shows/bring-it
+Title       : Bring It! Full Episodes, Video & More | Lifetime
+Description : Bring It! Email Updates. Get updates on new episodes, sneak peeks, and more! Please enter a valid email address. By submitting your information, you agree to receive ...
+]
+
+
+Result 9
+Relevant: NO
+[
+URL         : http://www.youtube.com/user/ImmJustBrian
+Title       : BriN - YouTube
+Description : BriN Videos; Playlists; Channels; Discussion; About; Home Trending History Best of YouTube Music Sports Gaming Movies ...
+]
+
+
+Result 10
+Relevant: NO
+[
+URL         : http://www.webmd.com/brain/picture-of-the-brain
+Title       : Brain (Human Anatomy): Picture, Function, Parts ...
+Description : WebMD's Brain Anatomy Page provides a detailed diagram and definition of the brain including its function, parts, and conditions that affect it.
+]
+
+
+PRECISION:0.2
+=================================
+Round 2
+QUERY brin sergey moscow
+
+Result 1
+Relevant: YES
+[
+URL         : https://en.wikipedia.org/wiki/Sergey_Brin
+Title       : Sergey Brin - Wikipedia, the free encyclopedia
+Description : Brin was born in Moscow in the Soviet Union, ... Sergey Brin has also been very involved and deserves many thanks. - Larry Page page cs.stanford.edu
+]
+
+
+Result 2
+Relevant: YES
+[
+URL         : http://www.forbes.com/profile/sergey-brin/
+Title       : Sergey Brin - Forbes
+Description : Sergey Brin runs Alphabet's secretive X division, a key player in the race towards autonomous vehicles and the builder of self-driving cars. X (formerly called ...
+]
+
+
+Result 3
+Relevant: YES
+[
+URL         : http://www.biography.com/people/sergey-brin-12103333#!
+Title       : Sergey Brin - Biography.com
+Description : Sergey Brin is the man who created the world's most popular search engine, Google, with Larry Page in 1998. Learn more about his life and career at Biography.com.
+]
+
+
+Result 4
+Relevant: YES
+[
+URL         : https://plus.google.com/+SergeyBrin/about
+Title       : Sergey Brin - About - Google+
+Description : Sergey Brin - Google - Mountain View, CA - palo alto, ca - college park, md - moscow, ussr - Stanford University
+]
+
+
+Result 5
+Relevant: YES
+[
+URL         : http://www.imdb.com/name/nm1962236/
+Title       : Sergey Brin - IMDb
+Description : Sergey Brin, Self: Google and the World Brain. Sergey Brin was born on August 21, 1973 in Moscow, RSFSR, USSR as Sergey Mikhaylovich Brin.
+]
+
+
+Result 6
+Relevant: YES
+[
+URL         : http://www.momentmag.com/the-story-of-sergey-brin/
+Title       : The Story of Sergey Brin - Moment Magazine
+Description : The Story of Sergey Brin - It takes a bit of searching to find Sergey Brin’s office at the Googleplex. Tucked away in a corner of Building #43 on this sprawling ...
+]
+
+
+Result 7
+Relevant: YES
+[
+URL         : http://research.google.com/pubs/SergeyBrin.html
+Title       : Sergey Brin - Research at Google
+Description : Sergey Brin, a native of Moscow, received a bachelor of science degree with honors in mathematics and computer science from the University of Maryland at ...
+]
+
+
+Result 8
+Relevant: YES
+[
+URL         : https://sco.wikipedia.org/wiki/Sergey_Brin
+Title       : Sergey Brin - Wikipedia
+Description : Sergey Brin in 2008. Born: Sergey Mikhaylovich Brin ... Moscow, Russian SFSR, Soviet Union: Residence: Los Altos, Californie, U.S. Naitionality: American: Citizenship:
+]
+
+
+Result 9
+Relevant: YES
+[
+URL         : http://www.wealthx.com/articles/2015/sergey-mikhaylovich-brin/
+Title       : Sergey Mikhaylovich BRIN | Wealth-X
+Description : Sergey Mikhaylovich BRIN; Sergey Mikhaylovich BRIN. Primary Position: President Primary Company: Alphabet Estimated Net Worth: ... Moscow, Moscow, Russia Marital Status:
+]
+
+
+Result 10
+Relevant: YES
+[
+URL         : http://immigration.about.com/od/successfulimmigrants/p/Brin_Profile.htm
+Title       : Sergey Brin - Profile of Sergey Brin Google Co-Founder
+Description : Sergey Brin was born August 21, 1973 in Moscow, Russia. Institutional anti-Semitism drove Sergey's highly-educated parents to begin the process of exiting the country ...
+]
+
+
+PRECISION:1.0
+=================================
+Round 1
+QUERY taj mahal
+
+Result 1
+Relevant: NO
+[
+URL         : https://en.wikipedia.org/wiki/Taj_Mahal
+Title       : Taj Mahal - Wikipedia, the free encyclopedia
+Description : Inspiration. The Taj Mahal was commissioned by Shah Jahan in 1631, to be built in the memory of his wife Mumtaz Mahal, a Persian princess who died giving birth to ...
+]
+
+
+Result 2
+Relevant: NO
+[
+URL         : http://tajmahal.gov.in/
+Title       : Welcome To Official WebSite of Taj Mahal-U.P.Tourism
+Description : Official website by Department of Tourism, Government of Uttar Pradesh. Details about Taj Mahal, ticketing, tours, and tourist information.
+]
+
+
+Result 3
+Relevant: NO
+[
+URL         : http://www.trumptaj.com/
+Title       : Atlantic City New Jersey Casino Hotels | Trump Taj Mahal ...
+Description : Trump Taj Mahal will close and cease casino and hotel operations on Monday, October 10, 2016 at 5:59am. Please see below regarding your Trump One® account and the ...
+]
+
+
+Result 4
+Relevant: NO
+[
+URL         : http://www.history.com/topics/taj-mahal
+Title       : The Taj Mahal - Facts & Summary - HISTORY.com
+Description : Find out more about the history of The Taj Mahal, including videos, interesting articles, pictures, historical features and more. Get all the facts on HISTORY.com
+]
+
+
+Result 5
+Relevant: NO
+[
+URL         : http://www.tajmahal.gov.in/picture_gallery.html
+Title       : Welcome To Official WebSite of Taj Mahal-U.P.Tourism
+Description : Taj Mahal at Agra, India is one of the wonders of the world. Find information related to Taj Mahal travel and tourism in this article.
+]
+
+
+Result 6
+Relevant: NO
+[
+URL         : https://en.wikipedia.org/wiki/Trump_Taj_Mahal
+Title       : Trump Taj Mahal - Wikipedia, the free encyclopedia
+Description : The Trump Taj Mahal is a casino and hotel on the Boardwalk in Atlantic City, New Jersey, United States. The casino is owned by Trump Entertainment Resorts ...
+]
+
+
+Result 7
+Relevant: NO
+[
+URL         : http://www.tajmahal.com/
+Title       : Taj Mahal India
+Description : Taj Mahal, Taj Mahal history, taj mahal location, pictures, information, taj mahal tours, tickets and packages. Taj Mahal India
+]
+
+
+Result 8
+Relevant: YES
+[
+URL         : http://www.last.fm/music/Taj+Mahal
+Title       : Taj Mahal — Free listening, videos, concerts, stats and ...
+Description : Taj Mahal (born Henry Saint Clair Fredericks in New York City on May 17, 1942) is an American Grammy Award-winning blues musician who incorporates elements of world ...
+]
+
+
+Result 9
+Relevant: NO
+[
+URL         : http://www.tajlancaster.com/
+Title       : Taj Mahal - Best Restaurant & Dining | Lancaster PA | Taj ...
+Description : Enjoy Indian cuisine in all its variety. Taj Mahal is consistently voted one of the best restaurants in Lancaster PA. Call 717-295-1434 for dining reservations!
+]
+
+
+Result 10
+Relevant: YES
+[
+URL         : http://www.allmusic.com/artist/taj-mahal-mn0000790604
+Title       : Taj Mahal | Biography, Albums, Streaming Links | AllMusic
+Description : Find Taj Mahal bio, music, credits, awards, & streaming links on AllMusic - A guitarist and singer/songwriter who took an…
+]
+
+
+PRECISION:0.2
+=================================
+Round 2
+QUERY allmusic albums taj mahal
+
+Result 1
+Relevant: YES
+[
+URL         : http://www.allmusic.com/artist/taj-mahal-mn0000790604/discography
+Title       : Taj Mahal | Album Discography | AllMusic
+Description : Find Taj Mahal discography, albums and singles on AllMusic
+]
+
+
+Result 2
+Relevant: YES
+[
+URL         : https://en.wikipedia.org/wiki/Taj_Mahal_(album)
+Title       : Taj Mahal (album) - Wikipedia, the free encyclopedia
+Description : Allmusic: Entertainment Weekly: A: Taj Mahal is the debut American blues album by Taj Mahal. Track listing "Leaving Trunk" (Sleepy John Estes) – 4:51
+]
+
+
+Result 3
+Relevant: YES
+[
+URL         : https://en.wikipedia.org/wiki/World_Music_(Taj_Mahal_album)
+Title       : World Music (Taj Mahal album) - Wikipedia, the free ...
+Description : World Music is an album by American blues artist Taj Mahal. Track listing. All tracks composed by Taj Mahal; except where indicated "When I Feel the Sea Beneath My Soul"
+]
+
+
+Result 4
+Relevant: YES
+[
+URL         : https://en.wikipedia.org/wiki/Maestro_(Taj_Mahal_album)
+Title       : Maestro (Taj Mahal album) - Wikipedia, the free encyclopedia
+Description : Maestro is an album by American blues artist Taj Mahal. It was nominated for Best Contemporary Blues Album at the 2009 Grammy Awards (but lost out to Dr. John and the ...
+]
+
+
+Result 5
+Relevant: YES
+[
+URL         : https://www.discogs.com/artist/15158-Taj-Mahal
+Title       : Taj Mahal Discography at Discogs
+Description : Complete your Taj Mahal record collection. Discover Taj Mahal's full discography. Shop new and used Vinyl and CDs.
+]
+
+
+Result 6
+Relevant: YES
+[
+URL         : http://rateyourmusic.com/release/album/taj_mahal/taj_mahal/
+Title       : Taj Mahal by Taj Mahal (Album, Electric Blues): Reviews ...
+Description : Taj Mahal, an Album by Taj Mahal. Released in 1968 on Columbia (catalog no. CS 9579; Vinyl LP). Genres: Electric Blues. Rated #51 in the best albums of 1968, and ...
+]
+
+
+Result 7
+Relevant: YES
+[
+URL         : https://www.amazon.com/Taj-Mahal/dp/B00004XSUW
+Title       : Taj Mahal - Taj Mahal - Amazon.com Music
+Description : Taj Mahal's been chasing the blues around the world for years, but rarely with the passion, energy, and clarity he brought to his first three albums.
+]
+
+
+Result 8
+Relevant: YES
+[
+URL         : http://www.allmusic.com/artist/taj-mahal-mn0000790604
+Title       : Taj Mahal | Biography, Albums, Streaming Links | AllMusic
+Description : Find Taj Mahal bio, music, credits, awards, & streaming links on AllMusic - A guitarist and singer/songwriter who took an…
+]
+
+
+Result 9
+Relevant: YES
+[
+URL         : http://www.youtube.com/watch?v=7iF0Va8v5BM
+Title       : THE NATCH`L BLUES (Full Album) - TAJ MAHAL - 1969 ...
+Description : THE NATCH`L BLUES (Full Album) - TAJ MAHAL - 1969. Orla Jørgensen. ... Taj Mahal - Harp (harmonica) and Miss "National", Steel-bodied guitar , Vocals
+]
+
+
+Result 10
+Relevant: YES
+[
+URL         : https://allmusicsite.com/music/cinta-di-langit-taj-mahal-episode-107-full-cd.html
+Title       : Cinta Di Langit Taj Mahal Episode 107 Full Cd ...
+Description : Download Songs Cinta Di Langit Taj Mahal Episode 107 Full Cd only for review course, Buy Cassette or CD / VCD original from the album Cinta Di
+]
+
+
+PRECISION:1.0
