@@ -62,8 +62,8 @@ public class Main {
 		
 		while (true) {
 			int relevantCount = 0;
-			ArrayList<Document> relevantDocs = new ArrayList<>();
-			ArrayList<Document> irrelevantDocs = new ArrayList<>(); 
+			ArrayList<Document> relevantDocs = new ArrayList<Document>();
+			ArrayList<Document> irrelevantDocs = new ArrayList<Document>(); 
 			
 			String queryEnc = URLEncoder.encode(query.toString(), Charset.defaultCharset().name());
 			String bingUrl = String.format(bingUrlPattern, queryEnc); 
@@ -118,7 +118,7 @@ public class Main {
 					final String URL = object.getString("Url").toLowerCase();
 					final String title = object.getString("Title").toLowerCase();
 					final String description = object.getString("Description").toLowerCase();
-					ArrayList<String> tokens = new ArrayList<>();
+					ArrayList<String> tokens = new ArrayList<String>();
 					
 					// tools.getTerms(tokens, URL);
 					tools.getTerms(tokens, title);
