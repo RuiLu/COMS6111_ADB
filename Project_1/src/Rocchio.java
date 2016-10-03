@@ -142,12 +142,12 @@ public class Rocchio {
 			}
 		}
 		
-		// If there are keys from the previous query are not included in new Query, add them manually
-		for (String oldKey : query.getTFMap().keySet()) {
-			if (!newKeys.contains(oldKey)) {
-				sb.append(oldKey + " ");
-			}
-		}
+//		// If there are keys from the previous query are not included in new Query, add them manually
+//		for (String oldKey : query.getTFMap().keySet()) {
+//			if (!newKeys.contains(oldKey)) {
+//				sb.append(oldKey + " ");
+//			}
+//		}
 		
 		sb.deleteCharAt(sb.length() - 1);
 		return sb.toString();

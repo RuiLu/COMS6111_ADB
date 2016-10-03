@@ -4,6 +4,9 @@
  */
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.BufferedWriter;
 
 import java.net.URL;
 import java.net.URLConnection;
@@ -22,6 +25,11 @@ public class Main {
 	
 	private static InputStream inputStream = null;
 	private static Scanner sc = null;
+	
+	private static FileWriter fw = null;
+	private static PrintWriter pw = null;
+	private final static String filePath = "transcript.txt";
+	
 	private static Query query;
 	private static Tools tools; 
 	
@@ -36,8 +44,10 @@ public class Main {
 //		}
 		
 		sc = new Scanner(System.in);
-		query = new Query("page".toLowerCase());
+		query = new Query("brin".toLowerCase());
 		tools = new Tools();
+		
+		int roundCounter = 0;
 		
 		final String bingAPIKey = "kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0";
 		final int precision = 9;
@@ -67,6 +77,14 @@ public class Main {
 			urlConnection.setRequestProperty("Authorization", "Basic " + accountKeyEnc);
 			
 			try {
+				// open transcript.txt and record results
+				fw = new FileWriter(filePath, true);
+				pw = new PrintWriter(new BufferedWriter(fw));
+				
+				pw.println("=================================");
+				pw.println("Round " + (++roundCounter));
+				pw.println("QUERY " + query.toString()  + "\n");
+				
 				inputStream = (InputStream)urlConnection.getContent();
 				final byte[] contentRaw = new byte[urlConnection.getContentLength()];
 				inputStream.read(contentRaw);
@@ -96,7 +114,7 @@ public class Main {
 					String description = object.getString("Description");
 					ArrayList<String> tokens = new ArrayList<>();
 					
-//					tools.getTerms(tokens, URL.toLowerCase());
+					// tools.getTerms(tokens, URL.toLowerCase());
 					tools.getTerms(tokens, title.toLowerCase());
 					tools.getTerms(tokens, description.toLowerCase());
 					
@@ -113,15 +131,28 @@ public class Main {
 					if (reply.equals("Y") || reply.equals("y")) {
 						relevantCount++;
 						relevantDocs.add(document);
-					} else {
+					} else if (reply.equals("N") || reply.equals("n")) {
 						irrelevantDocs.add(document);
 					}
 					System.out.println();
+					
+					pw.println("Result " + (i + 1));
+					pw.println("Relevant: " + (reply.toLowerCase().equals("y") ? "YES" : "NO"));
+					pw.println("[");
+					pw.println("URL        : " + URL);
+					pw.println("Title      : " + title);
+					pw.println("Description: " + description);
+					pw.println("]\n");
+					pw.println();
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
 			} finally {
+				pw.println("PRECISION:" + ((double)relevantCount / 10.0));
+				
 				if (inputStream != null) inputStream.close();
+				if (pw != null) pw.close();
+				if (fw != null) fw.close();
 			}
 		
 			if (relevantCount >= precision) {
