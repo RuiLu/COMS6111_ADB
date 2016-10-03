@@ -36,26 +36,27 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 
-//		for (String str : args) {
-//			System.out.println(str);
-//		}
-//		if (args.length < 4) {
-//			System.out.println("Correct format: ");
-//			return;
-//		}
+		if (args.length != 3) {
+			System.out.println("Correct format: ");
+			System.out.println("java -cp lib/commons-codec-1.10.jar:lib/org.json.jar: ");
+			System.out.println(	"Main APIKey Precision(0.0-1.0) 'original query'\n");
+			return;
+		}
 		
 		int roundCounter = 0;
 		
-		final String bingAPIKey = "kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0";
-		final int precision = 9;
+		// final String bingAPIKey = "kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0";
+		final String bingAPIKey = args[0];
+		final int precision = (int)(Double.parseDouble(args[1]) * 10);
+		final String originalQuery = args[2];
 		final String bingUrlPattern = "https://api.datamarket.azure.com/Bing/Search/Web?Query=%%27%s%%27&$top=10&$format=Json";
 		
 		sc = new Scanner(System.in);
-		query = new Query("Taj Mahal".toLowerCase());
+		query = new Query(originalQuery.toLowerCase());
 		tools = new Tools();
 		
 		// Print basic search information
-		System.out.println("Parameters");
+		System.out.println("\nParameters");
 		System.out.println("Client key  = " + bingAPIKey);
 		System.out.println("Query       = " + query.toString());
 		System.out.println("Precision   = " + ((double)precision / 10.0));
@@ -115,22 +116,22 @@ public class Main {
 				// start relevant feedback
 				for (int i = 0; i < jsonArrayLength; i++) {
 					final JSONObject object = jsonArray.getJSONObject(i);
-					final String URL = object.getString("Url").toLowerCase();
-					final String title = object.getString("Title").toLowerCase();
-					final String description = object.getString("Description").toLowerCase();
+					final String URL = object.getString("Url");
+					final String title = object.getString("Title");
+					final String description = object.getString("Description");
 					ArrayList<String> tokens = new ArrayList<String>();
 					
-					// tools.getTerms(tokens, URL);
-					tools.getTerms(tokens, title);
-					tools.getTerms(tokens, description);
+					// tools.getTerms(tokens, URL.toLowerCase());
+					tools.getTerms(tokens, title.toLowerCase());
+					tools.getTerms(tokens, description.toLowerCase());
 					
 					Document document = new Document(tokens);
 					
 					System.out.println("Result " + (i + 1));
 					System.out.println("[");
-					System.out.println("URL:" + URL);
-					System.out.println("Title:" + title);
-					System.out.println("Description:" + description);
+					System.out.println("URL         : " + URL);
+					System.out.println("Title       : " + title);
+					System.out.println("Description : " + description);
 					System.out.println("]\n");
 					System.out.print("Relevant (Y/N)? ");
 					String reply = sc.nextLine();
@@ -165,14 +166,14 @@ public class Main {
 				System.out.println("Feedback Summary:");
 				System.out.println("Query : " + query.toString());
 				System.out.println("Precision : " + ((double)relevantCount / 10.0));
-				System.out.println("Desired precision reached, done!\nSearch finished.");
+				System.out.println("Desired precision reached, done!\nSearch finished.\n");
 				break;
 			} else if (relevantCount == 0) {
 				System.out.println("=================================");
 				System.out.println("Feedback Summary:");
 				System.out.println("Query : " + query.toString());
 				System.out.println("Precision : " + ((double)relevantCount / 10.0));
-				System.out.println("Precision is 0.0, stop searcing.");
+				System.out.println("Precision is 0.0, stop searcing.\n");
 				break;
 			}
 			
