@@ -38,8 +38,8 @@ public class Main {
 
 		if (args.length != 3) {
 			System.out.println("Correct format: ");
-			System.out.println("java -cp lib/commons-codec-1.10.jar:lib/org.json.jar: ");
-			System.out.println(	"Main APIKey Precision(0.0-1.0) 'original query'\n");
+			System.out.print("java -cp lib/commons-codec-1.10.jar:lib/org.json.jar: ");
+			System.out.println("Main APIKey Precision(0.0-1.0) 'original query'\n");
 			return;
 		}
 		
