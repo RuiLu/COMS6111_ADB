@@ -52,7 +52,7 @@ public class Rocchio {
 	 * 2.Compute term weights from query
 	 */
 	private void getDocumentTermsWeights() {
-		HashMap<String, Integer> dfMap = new HashMap<String, Double>();
+		HashMap<String, Integer> dfMap = new HashMap<String, Integer>();
 		
 		// first step
 		for (Document doc : relevantDocs) {
@@ -120,7 +120,7 @@ public class Rocchio {
 		StringBuilder sb = new StringBuilder();
 		int limit = query.getTFMap().size();
 		int newCount = 0;
-		HashSet<String> newKeys = new HashSet<String, Double>();
+		HashSet<String> newKeys = new HashSet<String>();
 		
 		// Sort the TreeMap by values
 		TreeMap<String, Double> sortedMap = sortedByValues(termsWeights);

@@ -25,7 +25,7 @@ public class Tools {
 	 * @return
 	 */
 	private HashSet<String> getStopwordSet() {
-		HashSet<String> set = new HashSet<>();
+		HashSet<String> set = new HashSet<String>();
 		BufferedReader br = null;
 		
 		try {
