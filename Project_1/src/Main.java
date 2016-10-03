@@ -30,8 +30,9 @@ public class Main {
 	private static PrintWriter pw = null;
 	private final static String filePath = "transcript.txt";
 	
-	private static Query query;
-	private static Tools tools; 
+	private static Query query = null;
+	private static Tools tools = null;
+	private static Rocchio rocchio = null;
 	
 	public static void main(String[] args) throws IOException {
 
@@ -43,15 +44,15 @@ public class Main {
 //			return;
 //		}
 		
-		sc = new Scanner(System.in);
-		query = new Query("brin".toLowerCase());
-		tools = new Tools();
-		
 		int roundCounter = 0;
 		
 		final String bingAPIKey = "kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0";
 		final int precision = 9;
 		final String bingUrlPattern = "https://api.datamarket.azure.com/Bing/Search/Web?Query=%%27%s%%27&$top=10&$format=Json";
+		
+		sc = new Scanner(System.in);
+		query = new Query("Taj Mahal".toLowerCase());
+		tools = new Tools();
 		
 		// Print basic search information
 		System.out.println("Parameters");
@@ -99,6 +100,11 @@ public class Main {
 				if (jsonArrayLength < 10) {
 					System.out.println("Total number of results : " + jsonArrayLength);
 					System.out.println("The length of returned results is less than 10, stop.");
+					
+					pw.println("Total number of results : " + jsonArrayLength);
+					pw.println("The length of returned results is less than 10, stop.");
+					
+					close(inputStream, pw, fw);
 					break;
 				} else if (jsonArrayLength == 10) {
 					System.out.println("Total number of results : " + jsonArrayLength);
@@ -109,14 +115,14 @@ public class Main {
 				// start relevant feedback
 				for (int i = 0; i < jsonArrayLength; i++) {
 					final JSONObject object = jsonArray.getJSONObject(i);
-					String URL = object.getString("Url");
-					String title = object.getString("Title");
-					String description = object.getString("Description");
+					final String URL = object.getString("Url").toLowerCase();
+					final String title = object.getString("Title").toLowerCase();
+					final String description = object.getString("Description").toLowerCase();
 					ArrayList<String> tokens = new ArrayList<>();
 					
-					// tools.getTerms(tokens, URL.toLowerCase());
-					tools.getTerms(tokens, title.toLowerCase());
-					tools.getTerms(tokens, description.toLowerCase());
+					// tools.getTerms(tokens, URL);
+					tools.getTerms(tokens, title);
+					tools.getTerms(tokens, description);
 					
 					Document document = new Document(tokens);
 					
@@ -139,20 +145,19 @@ public class Main {
 					pw.println("Result " + (i + 1));
 					pw.println("Relevant: " + (reply.toLowerCase().equals("y") ? "YES" : "NO"));
 					pw.println("[");
-					pw.println("URL        : " + URL);
-					pw.println("Title      : " + title);
-					pw.println("Description: " + description);
+					pw.println("URL         : " + URL);
+					pw.println("Title       : " + title);
+					pw.println("Description : " + description);
 					pw.println("]\n");
 					pw.println();
 				}
+				
+				pw.println("PRECISION:" + ((double)relevantCount / 10.0));
+				
 			} catch (Exception e) {
 				// TODO: handle exception
 			} finally {
-				pw.println("PRECISION:" + ((double)relevantCount / 10.0));
-				
-				if (inputStream != null) inputStream.close();
-				if (pw != null) pw.close();
-				if (fw != null) fw.close();
+				close(inputStream, pw, fw);
 			}
 		
 			if (relevantCount >= precision) {
@@ -179,7 +184,7 @@ public class Main {
 			System.out.println();
 			
 			// computing terms weights here
-			Rocchio rocchio = new Rocchio(query, relevantDocs, irrelevantDocs);
+			rocchio = new Rocchio(query, relevantDocs, irrelevantDocs);
 			String newQuery = rocchio.getNewQuery();
 			query = new Query(newQuery);
 				
@@ -187,8 +192,19 @@ public class Main {
 			System.out.println("Client key  = " + bingAPIKey);
 			System.out.println("Query       = " + query.toString());
 			System.out.println("Precision   = " + ((double)precision / 10.0));
-		}
+		}	// end whild
 		
 		if (sc != null) sc.close();
+	}
+	
+	private static void close(InputStream is, PrintWriter pw, FileWriter fw) {
+		try {
+			if (inputStream != null) is.close();
+			if (pw != null) pw.close();
+			if (fw != null) fw.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 }
