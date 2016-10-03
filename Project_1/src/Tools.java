@@ -29,7 +29,7 @@ public class Tools {
 		BufferedReader br = null;
 		
 		try {
-			br = new BufferedReader(new FileReader("stopwords.txt"));
+			br = new BufferedReader(new FileReader("files/stopwords.txt"));
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				set.add(line);
