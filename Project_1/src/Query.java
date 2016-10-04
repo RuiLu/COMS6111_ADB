@@ -34,7 +34,7 @@ public class Query {
 		
 	}
 	
-	/*
+	/**
 	 * Transform the Query into vector.
 	 * Needs an index as input which tells the order of tokens
 	 * in the vector, namely which is the i-th token.
