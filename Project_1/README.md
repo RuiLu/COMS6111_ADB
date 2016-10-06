@@ -5,9 +5,9 @@ Rui Lu (rl2784), Ruijie Zhang (rz2337)
 
 Run
 ===
-Compile
-  In command line, enter the src directory, and run "make".
- Run
+##Compile
+In command line, enter the src directory, and run "make".
+##Run
   Run "java -cp lib/commons-codec-1.10.jar:lib/org.json.jar: Main <api> <precision> <key words>"
   <api> -- Bing search API key.
   <precision> -- The goal precision.
