@@ -41,8 +41,7 @@ Workflow
     
 Query Modification
 ==================
-    The basic idea is based on Rocchio algorithm.
-        
+    The basic idea is based on Rocchio algorithm.    
     We transform queries and documents into vector in different ways.
     
     For documents, the weight of a term in a document is the Euclidean normalized tf value.
