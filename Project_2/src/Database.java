@@ -17,8 +17,9 @@ public class Database {
 		 * until it has no sub_categories or does not meet the threshold. 
 		 */
 		Category current=root;
+		String res=current.name;
 		
 		
-		return current.name;
+		return res;
 	}
 }
