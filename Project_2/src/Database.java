@@ -1,10 +1,10 @@
 
 public class Database {
-	public String name;	
+	public String url;	
 	Integer t_ec;
 	Double t_es;
-	Database(String database_name) {
-		name=database_name;
+	Database(String database_link) {
+		url=database_link;
 
 	}
 	
