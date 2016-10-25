@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 
  */
 public class Tools {
-	public Category setup_category() {
+	public static Category setup_category() {
 		/*
 		Root 
 			Computers 
