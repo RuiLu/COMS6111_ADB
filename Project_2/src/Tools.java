@@ -122,6 +122,9 @@ public class Tools {
 		root.subCategory.add(sports);
 		root.subCategory.add(health);
 		root.subCategory.add(computers);
+		
+		//update path
+		root.update_path("");
 		return root;
 	}
 }
