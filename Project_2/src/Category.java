@@ -9,6 +9,15 @@ public class Category {
 	public Integer ecoverage=0;
 	public Double especificity=1.0;
 	
+	public void print_Category() {
+		for(String q:query) {
+			System.out.println(path+" "+q);
+		}
+		for(Category sub:subCategory) {
+			sub.print_Category();
+		}
+	}
+	
 	public void update_path(String p) {
 		path=p+name;
 		for(Category sub:subCategory) {
