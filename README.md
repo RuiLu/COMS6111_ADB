@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Projects Repo for COMS6111-ADB
 =======
 # First Project - Relevant Feedback
