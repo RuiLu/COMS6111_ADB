@@ -19,57 +19,18 @@ import org.apache.commons.codec.binary.Base64;
 
 public class Main {
 	
-	private static InputStream inputStream = null;
-	
 	public static void main(String[] args) {
 
 		final String bingAPIKey = "kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0";
 		final String inputUrl = "fifa.com";
 		final String query = "chelsea";
 		final int tec = 100;
-		final double tes = 0.6;
-				
-		final String urlPattern_1 = "https://api.datamarket.azure.com/Data.ashx/Bing/SearchWeb/v1/Composite?Query=%27site%3a";
-		final String urlPattern_2 = "%20";
-		final String urlPattern_3 = "%27&$top=10&$format=JSON";
+		final double tes = 0.6;		
 			
-		byte[] accountKeyBytes = Base64.encodeBase64((bingAPIKey + ":" + bingAPIKey).getBytes());
-		String accountKeyEnc = new String(accountKeyBytes);
+		Tools tools = new Tools(bingAPIKey, inputUrl);
 		
-			
-		try {
-				
-			String bingUrl = urlPattern_1 + inputUrl + urlPattern_2 + query + urlPattern_3;
-			System.out.println("URL: " + bingUrl);
-			URL url;
-			url = new URL(bingUrl);
-			URLConnection urlConnection = url.openConnection();
-			urlConnection.setRequestProperty("Authorization", "Basic " + accountKeyEnc);
-				
-			inputStream = (InputStream)urlConnection.getContent();
-			final byte[] contentRaw = new byte[urlConnection.getContentLength()];
-			inputStream.read(contentRaw);
-			final String content = new String(contentRaw);
-				
-			final JSONObject json = new JSONObject(content);
-			final JSONObject d = json.getJSONObject("d");
-			final JSONArray jsonArray = d.getJSONArray("results");
-				
-			final JSONObject meta = jsonArray.getJSONObject(0);
-			final String webTotal = meta.getString("WebTotal"); 
-				
-			System.out.println(webTotal);
-				
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		int webTotal = tools.getWebTotal("chelsea");
+		System.out.println("from main:" + webTotal);
 		
 	}
 
