@@ -22,30 +22,30 @@ public class Database {
 		pending.add(root);
 		String res="";
 		
-		while(pending.size()!=0) {
-			ArrayList<Category> next=new ArrayList<Category>();
-			for(Category current:pending) {
+		while (pending.size()!=0) {
+			ArrayList<Category> next = new ArrayList<Category>();
+			for (Category current : pending) {
 				Integer tot=0;
-				for(Category sub:current.subCategory) {
-					Integer ecoverage=0;
-					for(String q:sub.query) {
-						Integer f=0;//Needs a function;
-						ecoverage+=f;
+				for (Category sub : current.getSubCategories()) {
+					Integer ecoverage = 0;
+					for (String q : sub.getQuries()) {
+						Integer f = 0;	//Needs a function;
+						ecoverage += f;
 					}
-					sub.ecoverage=ecoverage;
-					tot+=ecoverage;
+					sub.seteCoverage(ecoverage);
+					tot += ecoverage;
 				}
 				Integer available_sub=0;
-				for(Category sub:current.subCategory) {
-					sub.especificity=current.especificity*sub.ecoverage/tot;
-					if((sub.ecoverage>=t_ec)&&(sub.especificity>t_es)) {
+				for (Category sub : current.getSubCategories()) {
+					sub.seteSpecificity(current.geteSpecificity() * sub.geteCoverage() / tot);
+					if ((sub.geteCoverage() >= t_ec) && (sub.geteSpecificity() > t_es)) {
 						next.add(sub);
 						available_sub++;
 					}
 				}
-				if(available_sub==0) {
-					if(res=="") res=current.path;
-					else res=res+" AND "+current.path;
+				if (available_sub == 0) {
+					if (res.equals("")) res = current.getPath();
+					else res = res + " AND " + current.getPath();
 				}
 			}
 		}

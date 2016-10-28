@@ -10,8 +10,12 @@ public class Main {
 			
 		Tools tools = new Tools(bingAPIKey, inputUrl);
 		
-		int webTotal = tools.getWebTotal("chelsea");
-		System.out.println("from main:" + webTotal);
+		Category root = tools.setupCategory();
+		root.printCategory();
+		
+		
+//		int webTotal = tools.getWebTotal("chelsea");
+//		System.out.println("from main:" + webTotal);
 		
 	}
 
