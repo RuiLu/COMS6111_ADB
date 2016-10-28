@@ -1,19 +1,16 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import org.apache.commons.codec.binary.Base64;
 
 /*
@@ -221,6 +218,49 @@ public class Tools {
 		} 
 		
 		return root;
+	}
+	
+	public String QProb(Integer t_ec, Double t_es, Category root) {
+
+		
+		/*
+		 * "current" represents the current category we are looking at.
+		 * It should be root at the beginning, and we will look deeper into it
+		 * until it has no sub_categories or does not meet the threshold. 
+		 */
+		ArrayList<Category> pending=new ArrayList<Category>();
+		pending.add(root);
+		String res="";
+		
+		while (pending.size()!=0) {
+			ArrayList<Category> next = new ArrayList<Category>();
+			for (Category current : pending) {
+				Integer tot=0;
+				for (Category sub : current.getSubCategories()) {
+					Integer ecoverage = 0;
+					for (String q : sub.getQuries()) {
+						Integer f = getWebTotal(q);
+						ecoverage += f;
+					}
+					sub.seteCoverage(ecoverage);
+					tot += ecoverage;
+				}
+				Integer available_sub=0;
+				for (Category sub : current.getSubCategories()) {
+					sub.seteSpecificity(current.geteSpecificity() * sub.geteCoverage() / tot);
+					if ((sub.geteCoverage() >= t_ec) && (sub.geteSpecificity() > t_es)) {
+						next.add(sub);
+						available_sub++;
+					}
+				}
+				if (available_sub == 0) {
+					if (res.equals("")) res = current.getPath();
+					else res = res + " AND " + current.getPath();
+				}
+			}
+		}
+		
+		return res;
 	}
 	
 	public void close() {
