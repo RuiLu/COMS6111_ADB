@@ -31,10 +31,10 @@ public class Category {
 		}
 	}
 	
-	public void update_path(String p) {
-		path=p+name;
-		for(Category sub:subCategories) {
-			sub.update_path(path+"/");
+	public void updatePath(String p) {
+		path = p + name;
+		for(Category sub : subCategories) {
+			sub.updatePath(path + "/");
 		}
 	}
 

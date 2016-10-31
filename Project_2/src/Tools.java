@@ -121,8 +121,8 @@ public class Tools {
 			// Third level -> soccer + basketball from sports
 			br = new BufferedReader(new FileReader(sportsPath));
 			
-			Category soccer = new Category("soccer", new ArrayList<String>());
-			Category basketball = new Category("basketball", new ArrayList<String>());
+			Category soccer = new Category("Soccer", new ArrayList<String>());
+			Category basketball = new Category("Basketball", new ArrayList<String>());
 			
 			while ((line = br.readLine()) != null) {
 				int firstSpace = line.indexOf(" ");
@@ -141,8 +141,8 @@ public class Tools {
 			// Third level -> diseases + fitness from health
 			br = new BufferedReader(new FileReader(healthPath));
 			
-			Category diseases = new Category("diseases", new ArrayList<String>());
-			Category fitness = new Category("fitness", new ArrayList<String>());
+			Category diseases = new Category("Diseases", new ArrayList<String>());
+			Category fitness = new Category("Fitness", new ArrayList<String>());
 			
 			while ((line = br.readLine()) != null) {
 				int firstSpace = line.indexOf(" ");
@@ -161,8 +161,8 @@ public class Tools {
 			// Third level -> hardware + programming from computer
 			br = new BufferedReader(new FileReader(computerPath));
 						
-			Category hardware = new Category("hardware", new ArrayList<String>());
-			Category programming = new Category("programming", new ArrayList<String>());
+			Category hardware = new Category("Hardware", new ArrayList<String>());
+			Category programming = new Category("Programming", new ArrayList<String>());
 						
 			while ((line = br.readLine()) != null) {
 				int firstSpace = line.indexOf(" ");
@@ -181,9 +181,9 @@ public class Tools {
 			// Second level -> computer + health + sports from root
 			br = new BufferedReader(new FileReader(rootPath));
 			
-			Category computers = new Category("computers", new ArrayList<String>());
-			Category sports = new Category("sports", new ArrayList<String>());
-			Category health = new Category("health", new ArrayList<String>());
+			Category computers = new Category("Computers", new ArrayList<String>());
+			Category sports = new Category("Sports", new ArrayList<String>());
+			Category health = new Category("Health", new ArrayList<String>());
 			
 			while ((line = br.readLine()) != null) {
 				int firstSpace = line.indexOf(" ");
@@ -202,7 +202,7 @@ public class Tools {
 			this.close();
 			
 			// First level -> root
-			root = new Category("root");
+			root = new Category("Root");
 			
 			// Add third-level categories to second-level category
 			computers.addCategory(hardware);
@@ -225,22 +225,25 @@ public class Tools {
 		return root;
 	}
 	
+	/**
+	 *	"current" represents the current category we are looking at.
+	 *  It should be root at the beginning, and we will look deeper into it
+	 *  until it has no sub_categories or does not meet the threshold. 
+	 * @param t_ec -> the threshold of coverage
+	 * @param t_es -> the threshold of specificity
+	 * @param root -> root category
+	 * @return
+	 */
 	public String QProb(Integer t_ec, Double t_es, Category root) {
-
 		
-		/*
-		 * "current" represents the current category we are looking at.
-		 * It should be root at the beginning, and we will look deeper into it
-		 * until it has no sub_categories or does not meet the threshold. 
-		 */
-		ArrayList<Category> pending=new ArrayList<Category>();
+		ArrayList<Category> pending = new ArrayList<Category>();
 		pending.add(root);
-		String res="";
+		String res = "";
 		
-		while (pending.size()!=0) {
+		while (pending.size() != 0) {
 			ArrayList<Category> next = new ArrayList<Category>();
 			for (Category current : pending) {
-				Integer tot=0;
+				Integer tot = 0;
 				for (Category sub : current.getSubCategories()) {
 					Integer ecoverage = 0;
 					for (String q : sub.getQuries()) {
