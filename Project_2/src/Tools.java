@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -19,12 +21,13 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class Tools {
 	
-	private InputStream inputStream = null;
 	private BufferedReader br = null;
 	
 	private final String urlPattern_1 = "https://api.datamarket.azure.com/Data.ashx/Bing/SearchWeb/v1/Composite?Query=%27site%3a";
 	private final String urlPattern_2 = "%20";
 	private final String urlPattern_3 = "%27&$top=10&$format=JSON";
+	
+//	private String urlPattern = "https://api.datamarket.azure.com/Data.ashx/Bing/SearchWeb/v1/Composite?Query=%27site%3a%27%s%27%20%27%s%27&$top=10&$format=JSON";
 	
 	private String inputUrl = null;
 	private String accountKeyEnc = null;
@@ -48,9 +51,13 @@ public class Tools {
 	 */
 	public int getWebTotal(String query) {
 		int webTotal = 0;
+		InputStream inputStream = null;
 		
 		try {
-			String bingUrl = urlPattern_1 + inputUrl + urlPattern_2 + query + urlPattern_3;
+			
+			String queryEnc = URLEncoder.encode(query.toString(), Charset.defaultCharset().name());
+			String bingUrl = urlPattern_1 + inputUrl + urlPattern_2 + queryEnc + urlPattern_3;
+			
 			System.out.println("URL: " + bingUrl);
 			URL url;
 			url = new URL(bingUrl);
@@ -70,8 +77,6 @@ public class Tools {
 			final String webTotalString = meta.getString("WebTotal"); 
 			
 			webTotal = Integer.parseInt(webTotalString);
-			
-			System.out.println("from tools:" + webTotal);
 			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -271,125 +276,4 @@ public class Tools {
 		}
 	}
 	
-	public static Category setup_category() {
-		/*
-		Root 
-			Computers 
-				Hardware 
-				Programming 
-			Health 
-				Fitness 
-				Diseases 
-			Sports 
-				Basketball 
-				Soccer
-		 */ 
-
-		//Third level categories
-		Category hardware=new Category("Hardware",
-				new ArrayList<String>(
-						Arrays.asList(
-								"bios", "motherboard", "board fsb", "board overclocking",
-								"fsb overclocking", "bios controller ide", "cables drive floppy"
-						)
-				)
-		);
-		Category programming=new Category("Programming",
-				new ArrayList<String>(
-						Arrays.asList(
-								"actionlistener", "algorithms", "alias", "alloc", "ansi",
-								"api", "applet", "argument", "array", "binary", "boolean",
-								"borland", "char", "class", "code", "compile", "compiler",
-								"component", "container", "controls", "cpan", "java", "perl"
-						)
-				)
-		);
-		Category fitness=new Category("Fitness",
-				new ArrayList<String>(
-						Arrays.asList(
-								"aerobic", "fat", "fitness", "walking", "workout", "acid diets",
-								"bodybuilding protein", "calories protein", "calories weight",
-								"challenge walk", "dairy milk", "eating protein", "eating weight",
-								"exercise protein", "exercise weight"
-						)
-				)
-		);
-		Category diseases=new Category("Diseases",
-				new ArrayList<String>(
-						Arrays.asList(
-								"aids", "cancer", "dental", "diabetes", "hiv", "cardiology",
-								"aspirin cardiologist", "aspirin cholesterol", "blood heart",
-								"blood insulin", "cholesterol doctor", "cholesterol lipitor",
-								"heart surgery", "radiation treatment"
-						)
-				)
-		);
-		Category basketball=new Category("Basketball",
-				new ArrayList<String>(
-						Arrays.asList(
-								"nba", "pacers", "kobe", "laker", "shaq", "blazers", "knicks",
-								"sabonis", "shaquille", "laettner", "wnba", "rebounds", "dunks"
-						)
-				)
-		);
-		Category soccer=new Category("Soccer",
-				new ArrayList<String>(
-						Arrays.asList(
-								"uefa", "leeds", "bayern","bundesliga","premiership","lazio",
-								"mls", "hooliganism", "juventus", "liverpool", "fifa"
-						)
-				)
-		);
-		
-		//Second level categories
-		Category sports=new Category("Sports",
-				new ArrayList<String>(
-						Arrays.asList(
-								"laker", "ncaa", "pacers", "soccer", "teams", "wnba", "nba", "avg league",
-								"avg nba", "ball league", "ball referee", "ball team", "blazers game",
-								"championship team", "club league", "fans football", "game league"
-						)
-				)
-		);
-		sports.addCategory(basketball);
-		sports.addCategory(soccer);
-		
-		Category health=new Category("Health",
-				new ArrayList<String>(
-						Arrays.asList(
-								"acupuncture", "aerobic", "aerobics", "aids", "cancer", "cardiology",
-								"cholesterol", "diabetes", "diet", "fitness", "hiv", "insulin", "nurse",
-								"squats", "treadmill", "walkers", "calories fat", "carb carbs", "doctor health",
-								"doctor medical", "eating fat", "fat muscle", "health medicine", "health nutritional",
-								"hospital medical", "hospital patients", "medical patient", "medical treatment",
-								"patients treatment"
-						)
-				)
-		);
-		health.addCategory(fitness);
-		health.addCategory(diseases);
-		
-		Category computers=new Category("Computers",
-				new ArrayList<String>(
-						Arrays.asList(
-								"cpu", "java", "module", "multimedia", "perl", "vb", "agp card",
-								"application windows", "applet code", "array code", "audio file",
-								"avi file", "bios", "buffer code", "bytes code", "shareware",
-								"card drivers", "card graphics", "card pc", "pc windows"
-						)
-				)
-		);
-		computers.addCategory(hardware);
-		computers.addCategory(programming);
-
-		//Root
-		Category root=new Category("Root");
-		root.addCategory(sports);
-		root.addCategory(health);
-		root.addCategory(computers);
-		
-		//update path
-		root.update_path("");
-		return root;
-	}
 }

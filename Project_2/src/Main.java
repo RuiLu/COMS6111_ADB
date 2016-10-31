@@ -11,8 +11,10 @@ public class Main {
 		Tools tools = new Tools(bingAPIKey, inputUrl);
 		
 		Category root = tools.setupCategory();
-		root.printCategory();
+//		root.printCategory();
 		
+		String res = tools.QProb(tec, tes, root);
+		System.out.println("result: "+ res);
 		
 //		int webTotal = tools.getWebTotal("chelsea");
 //		System.out.println("from main:" + webTotal);
