@@ -263,6 +263,7 @@ public class Tools {
 					else res = res + " AND " + current.getPath();
 				}
 			}
+			pending=new ArrayList<Category>(next);
 		}
 		
 		return res;
