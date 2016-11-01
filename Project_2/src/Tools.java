@@ -12,7 +12,10 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -304,7 +307,7 @@ public class Tools {
 		return res;
 	}
 	
-	public void content_summary() {
+	public void content_summary() throws IOException {
 		for(Category cat:classification) {
 			/*
 			 * Here we will ignore leaves
@@ -318,6 +321,11 @@ public class Tools {
 				for(String url:url_set) {
 					words.addAll(urlToDocMap.get(url));
 				}
+				
+				String filePath = cat.getName() + "-" + inputUrl + ".txt";
+				FileWriter fw = new FileWriter(filePath, true);
+				PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+				
 				for(String word:words) {
 					Integer count=0;
 					for(String url:url_set) {
@@ -328,11 +336,15 @@ public class Tools {
 					/*
 					 * Here should be some code to write the <word,count> pair;
 					 */
+					String output = word + "#" + count;
+					pw.println(output);
 				}
 				
 				/*
 				 * Here we should have some code to close that file.
 				 */
+				if (pw != null) pw.close();
+				if (fw != null) fw.close();
 			}
 			
 		}
