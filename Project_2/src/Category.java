@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Category {
@@ -84,5 +87,18 @@ public class Category {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+	
+	public Set<String> url_set(HashMap<String, Set<String>> category2doc) {
+		Set<String> res;
+		if(category2doc.containsKey(name)) {
+			res=new HashSet<String>(category2doc.get(name));
+			for(Category sub:subCategories) {
+				res.addAll(sub.url_set(category2doc));
+			}
+		} else 
+			res=new HashSet<String>();
+		return res;
+		
 	}
 }
