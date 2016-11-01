@@ -14,16 +14,15 @@ public class Main {
 		Category root = tools.setupCategory();
 		root.updatePath("");
 		
+		String res = tools.QProb(tec, tes, root);
+		System.out.println(inputUrl + ": "+ res);
+		
 		try {
 			tools.content_summary();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		String res = tools.QProb(tec, tes, root);
-		System.out.println(inputUrl + ": "+ res);
-		
 	}
 
 }
