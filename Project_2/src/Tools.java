@@ -106,7 +106,7 @@ public class Tools {
 			
 			final JSONObject meta = jsonArray.getJSONObject(0);
 			final String webTotalString = meta.getString("WebTotal"); 
-			
+			System.out.println(query);
 			webTotal = Integer.parseInt(webTotalString);
 			
 		} catch (MalformedURLException e) {
@@ -276,7 +276,7 @@ public class Tools {
 			ArrayList<Category> next = new ArrayList<Category>();
 			for (Category current : pending) {
 				Integer tot = 0;
-				classification = new ArrayList<Category>();
+				classification.add(current);
 				String categoryName = current.getName();
 				for (Category sub : current.getSubCategories()) {
 					Integer ecoverage = 0;
@@ -308,10 +308,11 @@ public class Tools {
 	}
 	
 	public void content_summary() throws IOException {
-		for(Category cat:classification) {
+		for(Category cat : classification) {
 			/*
 			 * Here we will ignore leaves
 			 */
+//			System.out.println(cat.getName()+" "+cat.getSubCategories().size());
 			if(cat.getSubCategories().size()>0){
 				/*
 				 * Here we should have some code to open a file.
@@ -323,6 +324,7 @@ public class Tools {
 				}
 				
 				String filePath = cat.getName() + "-" + inputUrl + ".txt";
+//				System.out.println(filePath);
 				FileWriter fw = new FileWriter(filePath, true);
 				PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 				
