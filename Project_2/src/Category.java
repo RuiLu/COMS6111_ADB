@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.TreeSet;
 
 
 public class Category {
@@ -87,18 +84,5 @@ public class Category {
 
 	public void setPath(String path) {
 		this.path = path;
-	}
-	
-	public Set<String> url_set(HashMap<String, TreeSet<String>> category2doc) {
-		Set<String> res;
-		if(category2doc.containsKey(name)) {
-			res=new TreeSet<String>(category2doc.get(name));
-			for(Category sub:subCategories) {
-				res.addAll(sub.url_set(category2doc));
-			}
-		} else 
-			res=new TreeSet<String>();
-		return res;
-		
 	}
 }
