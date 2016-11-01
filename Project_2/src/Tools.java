@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeSet;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -25,7 +28,7 @@ public class Tools {
 	
 	private final String urlPattern_1 = "https://api.datamarket.azure.com/Data.ashx/Bing/SearchWeb/v1/Composite?Query=%27site%3a";
 	private final String urlPattern_2 = "%20";
-	private final String urlPattern_3 = "%27&$top=10&$format=JSON";
+	private final String urlPattern_3 = "%27&$top=4&$format=JSON";
 	
 //	private String urlPattern = "https://api.datamarket.azure.com/Data.ashx/Bing/SearchWeb/v1/Composite?Query=%27site%3a%27%s%27%20%27%s%27&$top=10&$format=JSON";
 	
@@ -36,6 +39,10 @@ public class Tools {
 	private final String computerPath = "files/computer.txt";
 	private final String healthPath = "files/health.txt";
 	private final String sportsPath = "files/sports.txt";
+	
+	private HashMap<String, TreeSet<String>> urlToDocMap = new HashMap<String, TreeSet<String>>();
+	private HashMap<String, TreeSet<String>> catToUrlMap = new HashMap<String, TreeSet<String>>();
+	
 	
 	public Tools(String bingAPIKey, String inputUrl) {
 		this.inputUrl = inputUrl;
@@ -58,7 +65,7 @@ public class Tools {
 			String queryEnc = URLEncoder.encode(query.toString(), Charset.defaultCharset().name());
 			String bingUrl = urlPattern_1 + inputUrl + urlPattern_2 + queryEnc + urlPattern_3;
 			
-			System.out.println("URL: " + bingUrl);
+//			System.out.println("URL: " + bingUrl);
 			URL url;
 			url = new URL(bingUrl);
 			URLConnection urlConnection = url.openConnection();
@@ -72,7 +79,10 @@ public class Tools {
 			final JSONObject json = new JSONObject(content);
 			final JSONObject d = json.getJSONObject("d");
 			final JSONArray jsonArray = d.getJSONArray("results");
-				
+			
+			final int jsonArrayLength = jsonArray.length();
+			System.out.println("length: " + jsonArrayLength);
+			
 			final JSONObject meta = jsonArray.getJSONObject(0);
 			final String webTotalString = meta.getString("WebTotal"); 
 			
