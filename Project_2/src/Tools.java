@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.TreeSet;
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +43,7 @@ public class Tools {
 	
 	private HashMap<String, TreeSet<String>> urlToDocMap = new HashMap<String, TreeSet<String>>();
 	private HashMap<String, TreeSet<String>> catToUrlMap = new HashMap<String, TreeSet<String>>();
+	private ArrayList<Category> classification = null;
 	
 	
 	public Tools(String bingAPIKey, String inputUrl) {
@@ -247,6 +249,7 @@ public class Tools {
 	public String QProb(Integer t_ec, Double t_es, Category root) {
 		
 		ArrayList<Category> pending = new ArrayList<Category>();
+		classification = new ArrayList<Category>();
 		pending.add(root);
 		String res = "";
 		
@@ -254,6 +257,7 @@ public class Tools {
 			ArrayList<Category> next = new ArrayList<Category>();
 			for (Category current : pending) {
 				Integer tot = 0;
+				classification.add(current);
 				for (Category sub : current.getSubCategories()) {
 					Integer ecoverage = 0;
 					for (String q : sub.getQuries()) {
@@ -280,6 +284,40 @@ public class Tools {
 		}
 		
 		return res;
+	}
+	
+	public void content_summary() {
+		for(Category cat:classification) {
+			/*
+			 * Here we will ignore leaves
+			 */
+			if(cat.getSubCategories().size()>0){
+				/*
+				 * Here we should have some code to open a file.
+				 */
+				Set<String> url_set = cat.url_set(catToUrlMap);
+				Set<String> words = new TreeSet<String>();
+				for(String url:url_set) {
+					words.addAll(urlToDocMap.get(url));
+				}
+				for(String word:words) {
+					Integer count=0;
+					for(String url:url_set) {
+						if(urlToDocMap.get(url).contains(word)) {
+							count++;
+						}
+					}
+					/*
+					 * Here should be some code to write the <word,count> pair;
+					 */
+				}
+				
+				/*
+				 * Here we should have some code to close that file.
+				 */
+			}
+			
+		}
 	}
 	
 	public void close() {
