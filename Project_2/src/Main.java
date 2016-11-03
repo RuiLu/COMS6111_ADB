@@ -23,7 +23,7 @@ public class Main {
 		System.out.println("===============================\n");
 
 		/*
-		final String bingAPIKey = "kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0";
+		final String bingAPIKey = "";
 		final String inputUrl = "hardwarecentral.com";
 		final int tec = 100;
 		final double tes = 0.6;		
