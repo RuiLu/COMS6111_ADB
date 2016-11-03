@@ -1,0 +1,58 @@
+Project2 Group 30
+a. Member: 
+	Rui Lu (rl2784)
+	Ruijie Zhang (rz2337)
+
+b. List of files:
+	- src/
+		- Main.java
+		- Category.java
+		- GetWordsLynx.java
+		- Tools.java
+		- Makefile
+		- run.sh
+		- files/
+			- computer.txt
+			- health.txt
+			- sports.txt
+			- root.txt
+		- lib/
+			- commons-codec-1.10.jar
+			- org.json.jar
+			
+c. How to run our program
+	1. Compile
+		Run "make" under src directoty to compile.
+	2. Run
+		Run "./run.sh <key> <t_es> <t_ec> <host>"
+		Note that if facing "Permission Denied" when running run.sh, run "chmod +x run.sh" first.
+		Example:  ./run.sh kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0 0.6 100 fifa.com
+
+d. Internal Design
+	1. Classes Description
+		1.1. Main
+			Control the whole process, maintain the relevant feedback.
+		1.2. Category
+			The class which keeps a single document as an object.
+			Has a function to add the weights of all terms in this document into a given HashMap.
+			The weight of a term in a document is the Euclidean normalized tf value.
+		1.3. Tools
+			The class which keeps a query as an object.
+			Has a function to add the weights of all terms in this query into a given HashMap.
+			The weight of a term in a document is the tf-idf weight.
+			Here the df is calculated by the 10 documents returned by this query.
+		1.4. GetWordsLynx
+			Given a query, a relevant-document set and an irrelevant-document set using the Rocchio algorithm to calculate the vector of the new "query".
+			And using that result vector to pick new key words and reorder all key words we have.
+	2. Workflow
+		First of all, the main class gets the goal precision and the initial key word(s) and creat a corresponding Query object and starts the first search. 
+		It will tokenlize the results, 10 documents, store them in Document objects and show them to user so that user could mark relevant documents.
+		If the precision of this search reach the goal, or is zero, the program will stop.
+		Then, the main class will divide the documents into two sets, the relevant set and irrelevant set. The Query object and the two sets will be passed into the Rocchio object.
+		Inside the Rocchio object, it will calculate the df term of each token, get the weight of each token from query and all document and using Rocchio algorithm to generate a new vector.
+		The Rocchio object will return a new query according to the input query and the result vector.
+		Then the main class will start a new search using the new query.
+
+e. Bing Search Account Key
+	kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0
+
