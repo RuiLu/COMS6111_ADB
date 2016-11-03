@@ -288,7 +288,7 @@ public class Tools {
 					sub.seteCoverage(ecoverage);
 					tot += ecoverage;
 				}
-				Integer available_sub=0;
+				Integer available_sub = 0;
 				for (Category sub : current.getSubCategories()) {
 					sub.seteSpecificity(current.geteSpecificity() * sub.geteCoverage() / tot);
 					if ((sub.geteCoverage() >= t_ec) && (sub.geteSpecificity() > t_es)) {
@@ -301,37 +301,36 @@ public class Tools {
 					else res = res + " AND " + current.getPath();
 				}
 			}
-			pending=new ArrayList<Category>(next);
+			pending = new ArrayList<Category>(next);
 		}
 		
 		return res;
 	}
 	
 	public void content_summary() throws IOException {
-		for(Category cat : classification) {
+		for (Category cat : classification) {
 			/*
 			 * Here we will ignore leaves
 			 */
-//			System.out.println(cat.getName()+" "+cat.getSubCategories().size());
-			if(cat.getSubCategories().size()>0){
+			if (cat.getSubCategories().size() > 0) {
 				/*
 				 * Here we should have some code to open a file.
 				 */
 				Set<String> url_set = cat.url_set(catToUrlMap);
 				Set<String> words = new TreeSet<String>();
-				for(String url:url_set) {
+				for (String url : url_set) {
 					words.addAll(urlToDocMap.get(url));
 				}
 				
 				String filePath = cat.getName() + "-" + inputUrl + ".txt";
-//				System.out.println(filePath);
+
 				FileWriter fw = new FileWriter(filePath, true);
 				PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 				
-				for(String word:words) {
-					Integer count=0;
-					for(String url:url_set) {
-						if(urlToDocMap.get(url).contains(word)) {
+				for (String word : words) {
+					Integer count = 0;
+					for (String url : url_set) {
+						if (urlToDocMap.get(url).contains(word)) {
 							count++;
 						}
 					}
