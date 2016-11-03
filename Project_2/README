@@ -31,28 +31,25 @@ c. How to run our program
 d. Internal Design
 	1. Classes Description
 		1.1. Main
-			Control the whole process, maintain the relevant feedback.
+			Take inputs from users and call functions.
 		1.2. Category
-			The class which keeps a single document as an object.
-			Has a function to add the weights of all terms in this document into a given HashMap.
-			The weight of a term in a document is the Euclidean normalized tf value.
-		1.3. Tools
-			The class which keeps a query as an object.
-			Has a function to add the weights of all terms in this query into a given HashMap.
-			The weight of a term in a document is the tf-idf weight.
-			Here the df is calculated by the 10 documents returned by this query.
-		1.4. GetWordsLynx
-			Given a query, a relevant-document set and an irrelevant-document set using the Rocchio algorithm to calculate the vector of the new "query".
-			And using that result vector to pick new key words and reorder all key words we have.
-	2. Workflow
-		First of all, the main class gets the goal precision and the initial key word(s) and creat a corresponding Query object and starts the first search. 
-		It will tokenlize the results, 10 documents, store them in Document objects and show them to user so that user could mark relevant documents.
-		If the precision of this search reach the goal, or is zero, the program will stop.
-		Then, the main class will divide the documents into two sets, the relevant set and irrelevant set. The Query object and the two sets will be passed into the Rocchio object.
-		Inside the Rocchio object, it will calculate the df term of each token, get the weight of each token from query and all document and using Rocchio algorithm to generate a new vector.
-		The Rocchio object will return a new query according to the input query and the result vector.
-		Then the main class will start a new search using the new query.
+			Category is a class that is used to store information of a category and keep category-related functions. We store the three-level categories as a tree structure, so each Category object will store its sub-categories and the queries that associated with this category. Here the "associated queries" are the queries that we use to calculate it's coverage and specificity in its parent category. For example, "Root" has no queries since it's the root and we will add "aids", "cancer", "dental" to the query-set of category "Diseases" due to "Diseases aids, Diseases cancer, Diseases dental".
+			Category class also contains functions that help us update the path of categories and get the url/document set of a category which is used in content-summary.
 
+		1.3. Tools
+			Tool is a class which store four project-process related functions. We initialize the Tool class with a url. 
+			Function getWebTotal will return the number of matches of a input query for that url while retrieve top-4 documents and store them using two hashmaps inside this class.
+			Function setupCategory will read the files of categories and add queries into corresponding categories.
+			Function QProb will do classification and begin with the given root Category and two threshold. It will return all final categories that the url belongs to whose sub-categories do not meet the threshold.
+			Function content_summary will make the content summary of the url for each categories it belongs to except leaf node. It will get the url and document information using the two hashmaps used by getWebTotal.
+		1.4. GetWordsLynx
+			This class is copied and adapted from the script provided in project2. It will return the set of words appear in the document of the input url.
+	2. Workflow
+			Aftering reading the inputs, the Bing key, two thresholds and the input url, the main function create a new Tool class and call setupCategory to initialize the three-level categories and return the root Category. We will call the internal function updatePath of Category root to form the path of the tree structure.
+			Then, it calls QProb to do classification. Inside QProb, we will maintain a "pending" ArrayList which stores all categories the url belongs to at current level. This ArrayList starts with Category root we input into the function. For each member of "pending", we explore its sub-categories, call getWebTotal to get the number of matches for each queries.
+			Inside getWebTotal, we also retrieve top-4 documents, to store those documents, we maintain two hashmaps. The first one is urlToDocMap, a mapping from url to set of words. We use it to store the set of words for each url while access the same url only once. The second one is catToUrlMap, a mapping from category (actually, the name of category) to set of urls. Since function getWebTotal(String query, String category) also has the name of category as input, we could easily add top-4 documents into that category and remove duplication by using set. The two hashmaps will then be used in function content_summary.
+			Back to function QProb, following the instruction of "QProber: A System for Automatic Classification of Hidden-Web Databases", we calculate the estimated coverage and specificity of each sub-categories. If the current category has no sub-categories, or all sub-categories do not meet the thresholds, we add the path of current category into answer. Otherwise, we add those sub-categories which meet the two thresholds into the "pending" ArrayList of next level. And we also store all categories which the url belongs to into an ArrayList.
+			Finally, the main function call content_summary. We will explore all categories the input url belongs to except those leaf nodes. And for each category we explore, we first get the set of urls under its sub-tree which we retrieved during QProb. Then, we combine the set of words of all those documents to form a dictionary which includes all words we should output in content summary. For each word, we count the number of documents it occurs, and write the word with its frequency into file.
 e. Bing Search Account Key
 	kb6M6x15DP+nno7y8uWF1RXDitysb9EZb1Bif/kLod0
 
