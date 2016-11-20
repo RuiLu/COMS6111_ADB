@@ -9,7 +9,7 @@ public class Database {
 	private double support,confidence;
 	private Set<String> itemset;
 	public Database(ArrayList<ArrayList<String>> table, double support, double confidence) {
-		this.table=table;
+		this.table=new ArrayList<ArrayList<String>>(table);
 		this.support=support;
 		this.confidence=confidence;
 		checking=new ArrayList<Set<String>>();
