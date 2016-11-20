@@ -41,4 +41,18 @@ public class Database {
 		
 	}
 	
+	public Lt generate_Lt(ArrayList<ArrayList<String>> cancidates) {
+		ArrayList<ArrayList<String>> res=new ArrayList<ArrayList<String>>();
+		ArrayList<Double> supports=new ArrayList<Double>();
+		for(ArrayList<String> item:cancidates) {
+			double c=count(item);
+			if(c>support) {
+				res.add(item);
+				supports.add(c);
+			}
+		}
+		return new Lt(res,supports);
+		
+	}
+	
 }
