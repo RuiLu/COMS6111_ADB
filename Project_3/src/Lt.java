@@ -23,14 +23,15 @@ public class Lt {
 							break;
 						}
 					}
-				}
-				if (pass) {
-					ArrayList<String> temp = new ArrayList<String>(item1);
-					temp.add(item2.get(n));
-					if (validate(temp)) {
-						res.add(temp);
+					if (pass) {
+						ArrayList<String> temp = new ArrayList<String>(item1);
+						temp.add(item2.get(n));
+						if (validate(temp)) {
+							res.add(temp);
+						}
 					}
 				}
+				
 			}
 		
 		return res;

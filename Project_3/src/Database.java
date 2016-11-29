@@ -6,6 +6,7 @@ import java.util.Set;
 public class Database {
 	private ArrayList<ArrayList<String>> table;
 	private ArrayList<Set<String>> checking;
+	private ArrayList<ArrayList<String>> originalCandidate;
 	private double support;
 	private double confidence;
 	private Set<String> itemset;	// store all items from table
@@ -16,6 +17,7 @@ public class Database {
 		this.confidence = confidence;
 		checking = new ArrayList<Set<String>>();
 		itemset = new HashSet<String>();
+		originalCandidate = new ArrayList<ArrayList<String>>();
 		
 		/*
 		 * After getting the database, generate a item set for future use,
@@ -29,6 +31,16 @@ public class Database {
 			}
 			checking.add(temp);
 		}
+		
+		for (String item : itemset) {
+			ArrayList<String> inside = new ArrayList<>();
+			inside.add(item);
+			originalCandidate.add(inside);
+		}
+	}
+	
+	public ArrayList<ArrayList<String>> getOriginalCandidate() {
+		return originalCandidate;
 	}
 	
 	public double count(ArrayList<String> s) {
