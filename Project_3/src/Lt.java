@@ -1,13 +1,19 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Lt {
 	ArrayList<ArrayList<String>> itemsets;
 	ArrayList<Double> support;
+	Map<ArrayList<String>,Double> store_support;
 	
 	public Lt(ArrayList<ArrayList<String>> itemsets, ArrayList<Double> support) {
 		this.itemsets = new ArrayList<ArrayList<String>>(itemsets);
 		this.support = new ArrayList<Double>(support);
+		store_support = new HashMap<ArrayList<String>,Double>();
+		for(int i=0;i<itemsets.size();i++)
+			store_support.put(itemsets.get(i),support.get(i));
 	}
 	
 	public ArrayList<ArrayList<String>> generate_cancidates() {
@@ -59,6 +65,10 @@ public class Lt {
 		}
 		
 		return res;
+	}
+	
+	public double return_support(ArrayList<String> itemset) {
+		return store_support.get(itemset);
 	}
 
 }
