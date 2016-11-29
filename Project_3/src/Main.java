@@ -32,9 +32,11 @@ public class Main {
 		ArrayList<String> a1 = new ArrayList<String>(Arrays.asList(new String[]{"PEN", "APPLE", "PINEAPPLE"}));
 		ArrayList<String> a2 = new ArrayList<String>(Arrays.asList(new String[]{"PEN", "AB"}));
 		ArrayList<String> a3 = new ArrayList<String>(Arrays.asList(new String[]{"PEN", "APPLE", "PINEAPPLE", "CD"}));
+		ArrayList<String> a4 = new ArrayList<String>(Arrays.asList(new String[]{"APPLE", "WATER"}));
 		testTable.add(a1);
 		testTable.add(a2);
 		testTable.add(a3);
+		testTable.add(a4);
 		
 		fileName = "Water_Quality_complaints.csv";
 	
@@ -51,6 +53,15 @@ public class Main {
 //			System.out.println(lt.itemsets);
 			ArrayList<ArrayList<String>> c = lt.generate_cancidates();
 			lt = database.generate_Lt(c);
+		}
+		
+		ArrayList<Rule> rules=tools.generateRuleset(allLts, 0.8);
+		for(Rule r:rules) {
+			System.out.print(r.get_left());
+			System.out.print(" ");
+			System.out.print(r.get_right());
+			System.out.print(" ");
+			System.out.println(r.get_confidence());
 		}
 		
 	}

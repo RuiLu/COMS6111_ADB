@@ -52,7 +52,7 @@ public class Tools {
 			Lt previous=allLts.get(i-1);
 			Lt now=allLts.get(i);
 			for(ArrayList<String> itemset:now.itemsets){
-				double support=now.support.get(i);
+				double support=now.return_support(itemset);
 				for(int k=0;k<itemset.size();k++) {
 					ArrayList<String> temp=new ArrayList<String>(itemset);
 					temp.remove(k);
