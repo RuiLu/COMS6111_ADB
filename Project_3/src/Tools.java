@@ -7,7 +7,7 @@ public class Tools {
 	private ArrayList<ArrayList<String>> table = null;
 	
 	public Tools() {
-		table = new ArrayList<>();
+		table = new ArrayList<ArrayList<String>>();
 	}
 	
 	public ArrayList<ArrayList<String>> generateTable(String fileName) {
@@ -16,7 +16,7 @@ public class Tools {
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				String[] tokens = line.split(",");
-				ArrayList<String> list = new ArrayList<>();
+				ArrayList<String> list = new ArrayList<String>();
 				for (String token : tokens) {
 					list.add(token);
 				}
@@ -44,5 +44,13 @@ public class Tools {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<Rule> generateRuleset(ArrayList<Lt> allLts, double confidence) {
+		ArrayList<Rule> rules = new ArrayList<Rule>();
+		for (int i=1;i<allLts.size();i++) {
+			
+		}
+		return rules;
 	}
 }

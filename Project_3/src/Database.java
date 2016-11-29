@@ -33,7 +33,7 @@ public class Database {
 		}
 		
 		for (String item : itemset) {
-			ArrayList<String> inside = new ArrayList<>();
+			ArrayList<String> inside = new ArrayList<String>();
 			inside.add(item);
 			originalCandidate.add(inside);
 		}
