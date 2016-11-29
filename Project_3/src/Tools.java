@@ -49,7 +49,19 @@ public class Tools {
 	public ArrayList<Rule> generateRuleset(ArrayList<Lt> allLts, double confidence) {
 		ArrayList<Rule> rules = new ArrayList<Rule>();
 		for (int i=1;i<allLts.size();i++) {
-			
+			Lt previous=allLts.get(i-1);
+			Lt now=allLts.get(i);
+			for(ArrayList<String> itemset:now.itemsets){
+				double support=now.support.get(i);
+				for(int k=0;k<itemset.size();k++) {
+					ArrayList<String> temp=new ArrayList<String>(itemset);
+					temp.remove(k);
+					double support2=previous.return_support(temp);
+					if(support/support2>confidence) {
+						rules.add(new Rule(temp,itemset.get(k),support/support2));
+					}
+				}
+			}
 		}
 		return rules;
 	}
