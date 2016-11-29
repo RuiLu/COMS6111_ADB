@@ -12,7 +12,7 @@ public class Main {
 	private static Database database = null;
 	private static Lt lt = null;
 	private static ArrayList<ArrayList<String>> originalCandidte = null;
-	private static ArrayList<ArrayList<String>> allLts = null;
+	private static ArrayList<Lt> allLts = null;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,9 +26,9 @@ public class Main {
 //		min_sup = Double.parseDouble(args[1].trim());
 //		min_conf = Double.parseDouble(args[2].trim());
 		
-		allLts = new ArrayList<>();
+		allLts = new ArrayList<Lt>();
 		
-		ArrayList<ArrayList<String>> testTable = new ArrayList<>();
+		ArrayList<ArrayList<String>> testTable = new ArrayList<ArrayList<String>>();
 		ArrayList<String> a1 = new ArrayList<String>(Arrays.asList(new String[]{"PEN", "APPLE", "PINEAPPLE"}));
 		ArrayList<String> a2 = new ArrayList<String>(Arrays.asList(new String[]{"PEN", "AB"}));
 		ArrayList<String> a3 = new ArrayList<String>(Arrays.asList(new String[]{"PEN", "APPLE", "PINEAPPLE", "CD"}));
@@ -47,13 +47,12 @@ public class Main {
 		
 		while (true) {
 			if (lt.itemsets.size() == 0) break;
-			allLts.addAll(lt.itemsets);
+			allLts.add(lt);
 //			System.out.println(lt.itemsets);
 			ArrayList<ArrayList<String>> c = lt.generate_cancidates();
 			lt = database.generate_Lt(c);
 		}
 		
-		System.out.println(allLts);
 	}
 
 }
