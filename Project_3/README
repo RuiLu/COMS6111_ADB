@@ -1,0 +1,35 @@
+a. Rui Lu <uni>, Ruijie Zhang (rz2337)
+
+b. <list of files>
+
+c. <detailed description of databases>
+(a) which NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file; 
+(b) what (high-level) procedure you used to map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file; 
+(c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
+
+d. <how to run our program>
+
+e. Except the Main class, our program has 4 classes, Database, Rule, Lt, Tools. The first three are used to store three types of data structure, namely the input database, generated association rules and the the set of large itemsets. The final class Tools will keeps some other functions, like the function to generate association rules.
+
+The class Database will be initialized by giving a table, represented by ArrayList of ArrayList of String, and the two threshold. After getting the input table, it will generate the "dictionary" of all present items in the constructor function to form the "first cancidates".
+Another function, generate_Lt(ArrayList<ArrayList<String>> candidates), inside Database will generate the large itemset by computing the support of each row of the input "cancidates". To compute the support of a row (a itemset), we create another function count(ArrayList<String> s) to compute the number of presence of the input itemset and get the support rate.
+
+Each object of class Rule will store one association rule, the left term, the right term and the confidence.
+
+And each object of class Lt will store all large itemsets with same number of items, as the way told in course. It will store the actual support rate of each itemset as well, so when we want to compute the association rules, we don't need to calculate the support rate again.
+We put the function to generate the cancidates of next level, generate_cancidates(), inside the class Lt. In this function, it will first enumerate every pair of itemset, check whether they have same prefix while the last item of the first itemset is smaller than the last item of the second itemset.
+And for each found pair, we generate a potential cancidate, and throw it into the function validate(ArrayList<String> s). This function will check whether every subset of the input potential cancidate with size n could be found in the set of this Lt, which corresponds to the second part of the algorithm.
+To find the support of an itemset easily, we store the pair of itemset and its support into a map inside its Lt class and use a function to return the support. It's used when we generate the association rules.
+
+At last, in class Tools, there are two functions. The first function ArrayList<ArrayList<String>> generateTable(String fileName) will read the database from the csv file. The second function ArrayList<Rule> generateRuleset(ArrayList<Lt> allLts, double confidence) will generate association rules, stored in ArrayList of class Rule. The input ArrayList of class Lt must in ascending order of item number. The function will start with Lt class with two items, enumerate each itemset, try to remove an item from it and find the rest itemset from Lt class of previous level to get its support rate and calculate confidence. All association rules whose confidence rate is larger than the threshold will be added into the result.
+
+In generally, our program works as follows:
+1. read database from csv file and create a Database object.
+2. using the original cancidates from the Database as the first cancidate set. Keeps generate Lt using a for loop until the new Lt class is empty.
+3. generate association rules.
+4. wrtie data into files.
+
+f. <command line specification of an interesting sample run>
+	&& <explain why the result is interesting>
+
+g. <additional information>
