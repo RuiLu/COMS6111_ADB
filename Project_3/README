@@ -1,6 +1,17 @@
 a. Rui Lu <uni>, Ruijie Zhang (rz2337)
 
 b. <list of files>
+- src/
+    - INTEGRATED-DATASET.csv
+    - Database.java
+    - Rule.java
+    - Lt.java
+    - Tools.java
+    - Main.java
+    - Makefile
+    - run.sh
+    - example-run.txt
+- README
 
 c. <detailed description of databases>
 (a) which NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file; 
@@ -8,6 +19,12 @@ c. <detailed description of databases>
 (c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
 
 d. <how to run our program>
+(a) Compile
+    Run "make" under src directory to compile
+(b) Run
+    Run "./run.sh <csv file> <min_sup> <min_conf>"
+    Note that if facing "Permission Denied" when running run.sh, run "chmod +x run.sh" first.
+    Example:  ./run.sh INTEGRATED-DATASET.csv 0.002 0.8
 
 e. Except the Main class, our program has 4 classes, Database, Rule, Lt, Tools. The first three are used to store three types of data structure, namely the input database, generated association rules and the the set of large itemsets. The final class Tools will keeps some other functions, like the function to generate association rules.
 
@@ -31,5 +48,9 @@ In generally, our program works as follows:
 
 f. <command line specification of an interesting sample run>
 	&& <explain why the result is interesting>
+(a) Specific command line:
+    ./run INTEGRATED-DATASET.csv 0.002 0.8
+(b) Why the result is interesting:
+    
 
 g. <additional information>
