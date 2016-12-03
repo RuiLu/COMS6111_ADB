@@ -8,13 +8,11 @@ public class Database {
 	private ArrayList<Set<String>> checking;
 	private ArrayList<ArrayList<String>> originalCandidate;
 	private double support;
-	private double confidence;
 	private Set<String> itemset;	// store all items from table
 	
-	public Database(ArrayList<ArrayList<String>> table, double support, double confidence) {
+	public Database(ArrayList<ArrayList<String>> table, double support) {
 		this.table = new ArrayList<ArrayList<String>>(table);
 		this.support = support;
-		this.confidence = confidence;
 		checking = new ArrayList<Set<String>>();
 		itemset = new HashSet<String>();
 		originalCandidate = new ArrayList<ArrayList<String>>();
@@ -65,7 +63,7 @@ public class Database {
 				supports.add(c);
 			}
 		}
-		return new Lt(res , supports);
+		return new Lt(res, supports);
 		
 	}
 	

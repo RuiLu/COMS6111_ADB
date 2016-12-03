@@ -5,10 +5,13 @@ public class Rule {
 	private ArrayList<String> left;
 	private String right;
 	private double confidence;
-	public Rule(ArrayList<String> left, String right, double confidence) {
-		this.left=new ArrayList<String>(left);
-		this.right=new String(right);
-		this.confidence=confidence;
+	private double support;
+	
+	public Rule(ArrayList<String> left, String right, double confidence, double support) {
+		this.left = new ArrayList<String>(left);
+		this.right = "[" + new String(right) + "]";
+		this.confidence = confidence;
+		this.support = support;
 	}
 	
 	public ArrayList<String> get_left() {
@@ -23,4 +26,7 @@ public class Rule {
 		return confidence;
 	}
 	
+	public double get_support() {
+		return support;
+	}
 }
