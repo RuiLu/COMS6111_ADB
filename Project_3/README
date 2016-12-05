@@ -20,7 +20,7 @@ We use 201601-citibike-tripdata.csv, which records citibike trip data on first f
 (b) what (high-level) procedure you used to map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file;
 The original 201601-citibike-tripdata.csv contains columns like tripduration, starttime, stoptime, start station, end station, bikeid, usertype, birth year, gender. 
 
-We map the original data set into our INTEGRATED-DATASET, which contains duration, start time, start station, stop station, age, and gender. The duration from original file is in the format of second, we parse duration into format of “Duration: 0~15min”, “Duration: 15~30min”, “Duration: 30~60min”, and “Duration >1hour”. The start time from original file is in the format of “MM/dd/YYYY HH/mm/SS”, we parse it into the format of “StartTime: HH:00”, which only keeps the hour. We parse birth year into age. In order to make the age data more useful and more organized, we classify the ages in every ten years. We combine start station id and start station address from the original file into one column, we name it start station, which is in the format of “Start Station: <id>-<address>”. We do the same thing to stop station id and stop station address. Finally, we translate 0 and 1 from the original file into male and female.
+We map the original data set into our INTEGRATED-DATASET, which contains duration, start time, start station, stop station, age, and gender. The duration from original file is in the format of second, we parse duration into format of "Duration: 0~15min", "Duration: 15~30min", "Duration: 30~60min", and "Duration >1hour". The start time from original file is in the format of "MM/dd/YYYY HH/mm/SS", we parse it into the format of "StartTime: HH:00", which only keeps the hour. We parse birth year into age. In order to make the age data more useful and more organized, we classify the ages in every ten years. We combine start station id and start station address from the original file into one column, we name it start station, which is in the format of "Start Station: <id>-<address>". We do the same thing to stop station id and stop station address. Finally, we translate 0 and 1 from the original file into male and female.
  
 (c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
 There are two main reasons that why we are choosing the citibike data set. 
@@ -83,7 +83,7 @@ Actually all five top rules here indicate similar results. We also get some othe
 [40] => [Male] (Conf: 80.54914628518691%, Supp:17.288454554458717%)
 From those two rules, we know that more than 80% people whose age is in 40~49, or start from station 173-Broadway & W 49 St are males. Perhaps males are more like to ride a bike, compared to females.
 
-The reason that the above rules interest us is that the administrator might consider to expand the size of stations appearing in our rules, and might be helpful for health practitioners to analyze New York citizens’ living or exercise habit.
+The reason that the above rules interest us is that the administrator might consider to expand the size of stations appearing in our rules, and might be helpful for health practitioners to analyze New York citizens' living or exercise habit.
 
 
 g. <additional information>
