@@ -46,7 +46,7 @@ public class Tools {
 			Map<String, Double> rulesetsWithConfidence,
 			Double min_sup, Double min_conf) {
 		try {
-			pw = new PrintWriter(new FileWriter("example-run.txt"));
+			pw = new PrintWriter(new FileWriter("output.txt"));
 			
 			pw.println("==Frequent itemsets (min_sup=" + 100 * min_sup + "%)");
 			for (Map.Entry<ArrayList<String>, Double> me : entriesSortedByValues(frequentItemsetsWithSupport)) {
